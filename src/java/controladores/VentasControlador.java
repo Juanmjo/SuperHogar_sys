@@ -30,6 +30,12 @@ public class VentasControlador {
                         + "where id_venta=?";
                 try (PreparedStatement ps = Conexion.getConn().prepareStatement(sql)) {
                     ps.setInt(1, id);
+                    
+                   
+                            
+                            
+                    
+                    
                     ResultSet rs = ps.executeQuery();
                     if (rs.next()) {
                         ventas = new Ventas();
@@ -39,6 +45,15 @@ public class VentasControlador {
                         cliente.setId_cliente(rs.getInt("id_cliente"));
                         cliente.setNombre_cliente(rs.getString("nombre_cliente"));
                         ventas.setClientes(cliente);
+                        
+                        
+                        
+                        
+                         
+                    java.sql.Date fecha_venta = new java.sql.Date(new java.util.Date().getTime());
+                    ventas.setFecha_venta(fecha_venta);
+                    
+                    
                     }
                     ps.close();
                 }
